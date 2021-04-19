@@ -12,34 +12,76 @@ import AddTechinicians from './Components/AddTechnicians/AddTechnicians';
 import ManageServices from './Components/ManageService/ManageService';
 import Login from './Components/Login/Login';
 import AddReview from './Components/AddReview/AddReview';
+import Contact from './Components/Contact/Contact';
+import PaymentProcess from './Components/PaymentProcess/PaymentProcess';
+import UserOrder from './Components/UserOrder/UserOrder';
+import AdminOrderList from './Components/AdminOrderList/AdminOrderList';
+import Review from './Components/Review/Review';
+import Admin from './Components/Admin/Admin';
+import Services from './Components/Servcies/Services';
+import AllServices from './Components/AllServices/AllServices';
+import About from './Components/About/About';
+import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
-
+export const ProductContext = createContext();
+export const TechnicianContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [product, setProduct] = useState({});
+  const [isTechnician, setIsTechnician] = useState(null);
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route exact path="/addServices">
-            <AddServices></AddServices>
-          </Route>
-          <Route exact path="/addTechnicians">
-            <AddTechinicians></AddTechinicians>
-          </Route>
-          <Route exact path="/manageServices">
-            <ManageServices></ManageServices>
-          </Route>
-          <Route path="/login">
-            <Login></Login>
-          </Route>
-          <Route path="/addReview">
-            <AddReview></AddReview>
-          </Route>
-          {/* <Route path="/appointment">
+      <ProductContext.Provider value={[product, setProduct]}>
+        <TechnicianContext.Provider value={[isTechnician, setIsTechnician]}>
+
+
+          <Router>
+            <Switch>
+              
+              <Route exact path="/">
+                <Home></Home>
+              </Route>
+              <Route exact path="/about">
+                <About></About>
+              </Route>
+              <PrivateRoute exact path="/allservices">
+                <AllServices></AllServices>
+              </PrivateRoute>
+
+              <PrivateRoute exact path="/addServices">
+                <AddServices></AddServices>
+              </PrivateRoute>
+              <Route exact path="/review">
+                <Review></Review>
+              </Route>
+              <PrivateRoute exact path="/admin">
+                <Admin></Admin>
+              </PrivateRoute>
+              <PrivateRoute exact path="/addTechnicians">
+                <AddTechinicians></AddTechinicians>
+              </PrivateRoute>
+              <PrivateRoute exact path="/manageServices">
+                <ManageServices></ManageServices>
+              </PrivateRoute>
+              <Route path="/login">
+                <Login></Login>
+              </Route>
+              <PrivateRoute exact path="/addReview">
+                <AddReview></AddReview>
+              </PrivateRoute>
+         
+              <PrivateRoute path="/userOrderList">
+                <UserOrder></UserOrder>
+              </PrivateRoute>
+              <PrivateRoute path="/book">
+                <PaymentProcess></PaymentProcess>
+              </PrivateRoute>
+              <PrivateRoute exact path="/adminOrders">
+                <AdminOrderList></AdminOrderList>
+              </PrivateRoute>
+              
+              {/* <Route path="/appointment">
            
           </Route>
           <PrivateRoute path="/dashboard">
@@ -51,8 +93,10 @@ function App() {
           
          */}
 
-        </Switch>
-      </Router>
+            </Switch>
+          </Router>
+        </TechnicianContext.Provider>
+      </ProductContext.Provider>
     </UserContext.Provider>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AppNavbar from '../Shared/AppNavbar/AppNavbar';
 import axios from 'axios';
+import Sidebar from '../Sidebar/Sidebar';
 
 const AddTechinicians = () => {
     const [info, setInfo] = useState({});
@@ -44,7 +45,7 @@ const AddTechinicians = () => {
         formData.append('name', info.name);
         formData.append('email', info.email);
         formData.append('photoUrl', info.photoUrl);   
-        fetch('http://localhost:5000/addTechnicians', {
+        fetch('https://polar-retreat-16445.herokuapp.com/addTechnicians', {
             method: 'POST',
             body: formData
         })
@@ -60,8 +61,8 @@ const AddTechinicians = () => {
 
     return (
         <>
-            <AppNavbar></AppNavbar>
-
+            {/* <AppNavbar></AppNavbar> */}
+    <Sidebar></Sidebar>
             <section className="container-fluid row">
 
                 <div className="col-md-10 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>

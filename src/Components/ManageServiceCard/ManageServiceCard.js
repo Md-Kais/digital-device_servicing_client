@@ -5,7 +5,7 @@ import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 const ManageServiceCard = ({ service }) => {
     const deleteProduct = (id) => {
-        fetch(`http://localhost:5000/deleteProduct/${id}`, {
+        fetch(`https://polar-retreat-16445.herokuapp.com/deleteProduct/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AppNavbar from '../Shared/AppNavbar/AppNavbar';
+import Sidebar from '../Sidebar/Sidebar';
 
 
 const AddServices = () => {
@@ -25,7 +26,7 @@ const AddServices = () => {
         formData.append('type', info.type);
 
 
-        fetch('http://localhost:5000/addService', {
+        fetch('https://polar-retreat-16445.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })
@@ -36,13 +37,13 @@ const AddServices = () => {
             .catch(error => {
                 console.error(error)
             })
-            event.preventDefault();
+        event.preventDefault();
     }
 
     return (
         <>
-            <AppNavbar></AppNavbar>
-
+            {/* <AppNavbar></AppNavbar> */}
+            <Sidebar></Sidebar>
             <section className="container-fluid row">
 
                 <div className="col-md-10 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>

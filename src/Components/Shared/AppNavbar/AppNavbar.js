@@ -20,34 +20,33 @@ const AppNavbar = () => {
 
 
                 <Nav className="ml-auto ">
-                    <Nav.Link className='ml-3 navText text-secondary' href="#home" ><Link to="/">Home</Link></Nav.Link>
-                    <Nav.Link className='ml-3 navText text-secondary' href="#about">About</Nav.Link>
-                    <Nav.Link className='ml-3 navText text-secondary' href="#dentalServices"><Link to="/addServices">Services</Link></Nav.Link>
+                    <Nav.Link className='ml-3 navText text-secondary'  ><Link to="/">Home</Link></Nav.Link>
+                    <Nav.Link className='ml-3 navText text-secondary' ><Link to="/about">About</Link></Nav.Link>
+                    <Nav.Link className='ml-3 navText text-secondary'><Link to="/allservices">Services</Link></Nav.Link>
 
-                    <Nav.Link className='ml-3 navText text-secondary' href="#reviews">Reviews</Nav.Link>
+                    <Nav.Link className='ml-3 navText text-secondary'><Link to="/review">Review</Link></Nav.Link>
                     <NavDropdown title="Store" className='ml-3 navText text-secondary' id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1" className=' navText text-secondary'>Cart</NavDropdown.Item>
+                        <NavDropdown.Item className=' navText text-secondary'><Link to="/userOrderList">Orders</Link></NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.2" className=' navText text-secondary' >Contact</NavDropdown.Item>
 
                     </NavDropdown>
-                    <Nav.Link className='ml-3 navText text-secondary' href="blog">Blog</Nav.Link>
-
-                    <Nav.Link className='ml-3 navText text-secondary' href="contact">  <Link to='/login' className="link-text">
+                    <Nav.Link className='ml-3 navText text-secondary'><Link to="/admin">Admin</Link></Nav.Link>
+                    <Link to='/login' className="link-text"><Nav.Link className='ml-3 navText text-secondary'>
                         {
                             loggedInUser.isSignedIn
                                 ?
                                 <Image src={photoURL} roundedCircle height="50px" />
 
                                 :
-                                <p className='ml-3 navText text-secondary'>Login </p>
+                                <p className='ml-3 navText text-secondary'> <Link to='/login' className="link-text">Login</Link> </p>
 
 
 
 
-                        }
-                    </Link>
-                    </Nav.Link>
+                        } </Nav.Link>
+                   </Link>
+                   
 
 
                 </Nav>

@@ -14,11 +14,11 @@ const Footer = () => {
         { name: "Laptop Check Up", link: "/checkup" },
     ]
     const ourAddress = [
-        { name: "Motijheel-1000,Dhaka", link: "//google.com/map" },
+        { name: "Motijheel-1000,Dhaka", link: "www.google.com/map" },
         { name: "Bangladesh", link: "//google.com/map" },
 
     ]
-    const oralHealth = [
+    const tips = [
         { name: "Emergency Servicing", link: "/emergency" },
         { name: "PC Check Up", link: "/checkup" },
         { name: "Treatment of MalWare Attack", link: "/personal-treatment" },
@@ -42,7 +42,7 @@ const Footer = () => {
                 <div className="row py-5">
                     <FooterCol key={1} menuTitle={"."} menuItems={noNamed} />
                     <FooterCol key={2} menuTitle="Services" menuItems={services} />
-                    <FooterCol key={3} menuTitle="Oral Health" menuItems={oralHealth} />
+                    <FooterCol key={3} menuTitle="Performace Check" menuItems={tips} />
                     <FooterCol key={4} menuTitle="Our Address" menuItems={ourAddress}>
                         <ul className="social-media list-inline">
                             <li className="list-inline-item"><a href="//facebook.com"><FontAwesomeIcon className="icon  text-info" icon={faFacebookF} /></a></li>

@@ -2,15 +2,18 @@
 import React, { useEffect, useState } from 'react';
 
 import Service from '../Service/Service';
+import AppNavbar from '../Shared/AppNavbar/AppNavbar';
 const Services = () => {
     const [services, setservices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://polar-retreat-16445.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setservices(data))
     }, [])
 
     return (
+        <>
+
         <section className="services">
             <div className="container">
                 <h5 className="text-center  text-primary mb-5">Our services</h5>
@@ -22,6 +25,7 @@ const Services = () => {
                 </div>
             </div>
         </section>
+        </>
     );
 };
 

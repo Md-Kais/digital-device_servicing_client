@@ -1,8 +1,25 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useHistory,
+   
+} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins } from '@fortawesome/free-solid-svg-icons';
+import { Button } from 'react-bootstrap';
+import { ProductContext } from '../../App';
+
+
 const Service = ({ service }) => {
+    const history=useHistory();
+    const [product, setProduct] = useContext(ProductContext);
+    const handleClick=(service)=>{
+        setProduct(service);
+        history.push('/book');
+    }
     return (
         <div className="col-md-4 col-sm-6 text-center">
             {
@@ -13,6 +30,7 @@ const Service = ({ service }) => {
             <h4>{service.servicename}</h4>
             <p> <FontAwesomeIcon className="text-primary" icon={faCoins} /> $ {service.cost}</p>
             <p>Category : {service.type} </p>
+            <Button variant="success" onClick={()=>{handleClick(service)}}>Repair</Button>
         </div>
     );
 };

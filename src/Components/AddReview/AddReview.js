@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../App';
 import AppNavbar from '../Shared/AppNavbar/AppNavbar';
+import Sidebar from '../Sidebar/Sidebar';
 
 
 const AddReview = () => {
     const [info, setInfo] = useState({});
     const [loggedInUser, setLoggedInUser] =useContext(UserContext);
-    const { email, photoURL, displayName } = loggedInUser;
+    const { email, photoURL, name } = loggedInUser;
     const handleBlur = e => {
-        const newInfo = { ...info , photoURL };
+        const newInfo = { ...info , photoURL,name,email };
+       // newInfo[e.target.name] = e.target.value;
         newInfo[e.target.name] = e.target.value;
         setInfo(newInfo);
     }
@@ -23,7 +25,7 @@ const AddReview = () => {
         formData.append('review', info.review);
         formData.append('photoURL',info.photoURL);
         
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://polar-retreat-16445.herokuapp.com/addReview', {
             method: 'POST',
             body: formData
         })
@@ -39,21 +41,22 @@ const AddReview = () => {
 
     return (
         <>
-            <AppNavbar></AppNavbar>
-
+         
+            <Sidebar></Sidebar>
             <section className="container-fluid row">
 
                 <div className="col-md-10 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>
-                    <h5 className="text-brand">Add Technicians</h5>
+                    <h5 className="text-brand">Add Review</h5>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="exampleInputEmail1">Email address</label>
-                            <input onBlur={handleBlur} type="email" className="form-control" name="email" placeholder="Enter Your email" />
+                            <input  type="email" className="form-control" name="email" value={email} placeholder="Enter Your email" />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1"> Name</label>
-                            <input onBlur={handleBlur} type="text" className="form-control" name="name" placeholder="Enter Your Name" />
+                            <input  type="text" className="form-control" name="name"
+                            value={name} placeholder="Enter Your Name" />
                         </div>
 
                         <div className="form-group">

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext , useEffect } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/analytics";
@@ -8,7 +8,7 @@ import './Login.css'
 import { useHistory, useLocation } from 'react-router';
 
 
-import { UserContext } from '../../App';
+import { TechnicianContext,  UserContext } from '../../App';
 import firebaseConfig from '../../firebaseConfig';
 import { Badge, Button, Spinner } from 'react-bootstrap';
 import AppNavbar from '../Shared/AppNavbar/AppNavbar';
@@ -36,6 +36,33 @@ const Login = () => {
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [passwordProvide, setPasswordProvide] = useState('');
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [isTechnician, setIsTechnician] = useContext(TechnicianContext);
+    function checkTechnicain(email){
+        console.log(email);
+        fetch('https://polar-retreat-16445.herokuapp.com/isTechnician', {
+
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                'email': email,
+                
+
+            })
+        })
+            .then(res => res.json())
+            .then(success => {
+                console.log(success);
+                if (success) {
+                   
+                    setIsTechnician(true);
+                    console.log(isTechnician);
+                    alert('Welcome back Technician');
+                    history.replace(from);
+                }
+            })
+    }
+    
+    
     var provider = new firebase.auth.GoogleAuthProvider();
     function handleSignIn() {
         firebase.auth().signInWithPopup(provider).then(res => {
@@ -56,8 +83,9 @@ const Login = () => {
             setUser(newUser);
             setLoggedInUser(newUser);
             setLoading(true);
+            checkTechnicain(email);
             storeAuthToken();
-            history.replace(from);
+           
         })
 
             .catch((error) => {
@@ -279,9 +307,10 @@ const Login = () => {
 
 
     return (
-        
+        <>
+        <AppNavbar></AppNavbar>
         <div className='pageDisplay'>
-            <AppNavbar></AppNavbar>
+            {/* <AppNavbar></AppNavbar> */}
             <h3>User : {loggedInUser.name}</h3>
             {
                 loggedInUser.isSignedIn && <p>You are logged in</p>
@@ -325,6 +354,7 @@ const Login = () => {
             }
            <Footer></Footer>
         </div>
+        </>
     );
 };
 
