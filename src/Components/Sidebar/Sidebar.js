@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faSignOutAlt, faCalendar, faHome, faGripHorizontal, faUserPlus, faUsers, faComment, faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faCalendar, faHome, faGripHorizontal, faUserPlus, faComment, faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import { faFileAlt } from '@fortawesome/free-regular-svg-icons'
 import { TechnicianContext, UserContext } from '../../App';
 import { faServicestack } from '@fortawesome/free-brands-svg-icons';
@@ -29,8 +29,7 @@ const Sidebar = () => {
                 if (success) {
 
                     setIsTechnician(true);
-                    console.log(isTechnician);
-                 
+                
                 }
             })
     }, [])

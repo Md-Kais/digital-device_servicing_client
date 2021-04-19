@@ -15,9 +15,8 @@ import BusinessCardInfo from '../Header/BusinessCard/BusinessCardInfo/BusinessCa
 import HeaderMidArticle from '../Header/HeaderMid/HeaderMid';
 
 const Home = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [isTechnician, setIsTechnician] = useContext(TechnicianContext);
-    console.log(isTechnician);
+
+   
     return (
         <div>
             <AppNavbar></AppNavbar>

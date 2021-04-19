@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AppNavbar from '../Shared/AppNavbar/AppNavbar';
+
 import axios from 'axios';
 import Sidebar from '../Sidebar/Sidebar';
 
@@ -52,11 +52,12 @@ const AddTechinicians = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
+                alert('Technicians Added Succesfully')
             })
             .catch(error => {
                 console.error(error)
             })
-    event.preventDefault();
+     event.preventDefault();
     }
 
     return (

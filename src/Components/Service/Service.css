@@ -1,0 +1,18 @@
+.mouseHoverReact:hover {
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+    -o-transform: scale(1.10);
+    transform: scale(1.10);
+    -webkit-transform-origin: top right;
+    -moz-transform-origin: top right;
+    -o-transform-origin: top right;
+    transform-origin: top;
+    box-shadow: 20px gray;
+    max-width: 18rem;
+}
+
+.backgroudChanger:hover {
+    color: red;
+    width: 19rem;
+   
+}

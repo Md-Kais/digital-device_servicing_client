@@ -34,6 +34,7 @@ const Contact = () => {
                 .then(response => response.json())
                 .then(data => {
                     console.log(data)
+                    alert('Review Added Succesfully. Thanks for your review')
                 })
                 .catch(error => {
                     console.error(error)

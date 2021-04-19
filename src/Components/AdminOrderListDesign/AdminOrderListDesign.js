@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import './AdminOrderListDesign.css'
 const AdminOrderListDesign = ({ order }) => {
-    console.log(order);
+   
     const {status,image,servicename, _id , email}=order;
     const [nextStatus, setNextStatus] = useState(status);
-    console.log(nextStatus);
-
+  
 
     const statusChanger=(value)=>{
         setNextStatus(value)
-        console.log(nextStatus);
+       
         fetch('https://polar-retreat-16445.herokuapp.com/updateOrder', {
 
             method: 'POST',
@@ -30,7 +29,7 @@ const AdminOrderListDesign = ({ order }) => {
 
 
     return (
-        <div className="col col-lg-4 col-md-6 adminWorkCard "style={{margin:"auto 0",textAlign:'center'}}>
+        <div className="col col-lg-4 col-md-6 mt-3 mb-3 mr-3 adminWorkCard "style={{margin:"auto 0",textAlign:'center'}}>
             {
                 image ? <img style={{ height: '200px',width:'230px',borderRadius: '20px', margin: "auto 0", textAlign: 'center'  }} src={`data:image/png;base64,${image.img}`} alt="service" />
                     :

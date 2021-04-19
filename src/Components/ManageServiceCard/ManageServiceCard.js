@@ -9,7 +9,14 @@ const ManageServiceCard = ({ service }) => {
             method: 'DELETE',
         })
             .then(res => res.json())
-            .then(res => console.log(res))
+            .then(res => {
+                if(res===true){
+                    alert('Service Deleted Succesfully');
+                }
+                else{
+                    alert('Sorry Sir.Service Deleted Already. Please go to the home or delete another thing')
+                }
+            })
     }
     return (
 

@@ -12,13 +12,13 @@ import AddTechinicians from './Components/AddTechnicians/AddTechnicians';
 import ManageServices from './Components/ManageService/ManageService';
 import Login from './Components/Login/Login';
 import AddReview from './Components/AddReview/AddReview';
-import Contact from './Components/Contact/Contact';
+
 import PaymentProcess from './Components/PaymentProcess/PaymentProcess';
 import UserOrder from './Components/UserOrder/UserOrder';
 import AdminOrderList from './Components/AdminOrderList/AdminOrderList';
 import Review from './Components/Review/Review';
 import Admin from './Components/Admin/Admin';
-import Services from './Components/Servcies/Services';
+
 import AllServices from './Components/AllServices/AllServices';
 import About from './Components/About/About';
 import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
@@ -45,9 +45,9 @@ function App() {
               <Route exact path="/about">
                 <About></About>
               </Route>
-              <PrivateRoute exact path="/allservices">
+              <Route exact path="/allservices">
                 <AllServices></AllServices>
-              </PrivateRoute>
+              </Route>
 
               <PrivateRoute exact path="/addServices">
                 <AddServices></AddServices>

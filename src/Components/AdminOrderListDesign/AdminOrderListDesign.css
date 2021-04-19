@@ -1,8 +1,8 @@
 .adminWorkCard {
     /* padding: 20px; */
     padding: 10px;
-    margin: 5px;
+    
     border: 2px solid rgb(198, 190, 190);
     border-radius: 20px;
     box-shadow: 2px black;
-}
+} 

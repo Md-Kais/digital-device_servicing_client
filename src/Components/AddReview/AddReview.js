@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../App';
-import AppNavbar from '../Shared/AppNavbar/AppNavbar';
+
 import Sidebar from '../Sidebar/Sidebar';
 
 
@@ -32,6 +32,7 @@ const AddReview = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
+                alert('Review Added succesfully. Thanks a lot to give us this review')
             })
             .catch(error => {
                 console.error(error)

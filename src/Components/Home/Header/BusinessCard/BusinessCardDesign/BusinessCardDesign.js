@@ -1,11 +1,10 @@
 import React from 'react';
-import { faClock } from '@fortawesome/free-regular-svg-icons';
-import { faMapMarkerAlt, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const BusinessCardDesign = ({ e }) => {
-    console.log(e);
+   
     return (
         // <div className="container">
         <div className="row m-1 p-3" style={{ width: '350px', backgroundColor: `${e.bg}`, borderRadius: '20px', color: 'wheat' }}>

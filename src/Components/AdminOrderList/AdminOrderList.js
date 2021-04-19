@@ -10,7 +10,7 @@ const AdminOrderList = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [isTechnician, setIsTechnician] = useContext(TechnicianContext);
     const [userOrders, setUserOrders] = useState([]);
-    console.log(loggedInUser.email);
+   
 
     useEffect(() => {
 
@@ -37,17 +37,17 @@ const AdminOrderList = () => {
                 if (success) {
 
                     setIsTechnician(true);
-                    console.log(isTechnician);
+               
 
                 }
             })
     }
     );
-    console.log(isTechnician);
+  
 
 
 
-    console.log(userOrders);
+    
     return (
         <>
         <Sidebar></Sidebar>

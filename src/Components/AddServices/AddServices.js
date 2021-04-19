@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AppNavbar from '../Shared/AppNavbar/AppNavbar';
+
 import Sidebar from '../Sidebar/Sidebar';
 
 
@@ -33,11 +33,12 @@ const AddServices = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
+                alert('Services added Succesfully')
             })
             .catch(error => {
                 console.error(error)
             })
-        event.preventDefault();
+       event.preventDefault();
     }
 
     return (
